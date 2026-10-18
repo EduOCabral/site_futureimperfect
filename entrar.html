@@ -69,13 +69,13 @@ footer a{color:inherit}
     </section>
 
     <div class="acoes">
-      <a class="link" id="alt" href="index.html">Voltar às notícias</a>
+      <a class="link" id="alt" href="cadastro.html">Criar conta</a>
       <button class="btn" id="prox">Próxima</button>
     </div>
   </form>
 </main>
 
-<footer><span>Português (Brasil)</span><a href="ajuda.html">Ajuda</a></footer>
+<footer><span>Português (Brasil)</span><a href="index.html">Voltar às notícias</a><a href="ajuda.html">Ajuda</a></footer>
 
 <script>
 // Imagens do site: endereços originais, guardados em um único lugar.
@@ -103,8 +103,8 @@ function ir(n) {
   $('sub').hidden = n === 2;
   $('titulo').textContent = n === 1 ? 'Fazer login' : 'Olá!';
   $('prox').textContent = n === 1 ? 'Próxima' : 'Entrar';
-  $('alt').textContent = n === 1 ? 'Voltar às notícias' : 'Esqueceu a senha?';
-  $('alt').href = n === 1 ? 'index.html' : 'ajuda.html#esqueci-senha';
+  $('alt').textContent = n === 1 ? 'Criar conta' : 'Esqueceu a senha?';
+  $('alt').href = n === 1 ? 'cadastro.html' : 'ajuda.html#esqueci-senha';
   (n === 1 ? $('email') : $('senha')).focus();
 }
 
