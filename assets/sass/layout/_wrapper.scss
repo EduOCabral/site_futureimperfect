@@ -16,7 +16,8 @@
 		padding: (_size(section-spacing) * 1.5);
 		width: 90em;
 
-		body.is-menu-visible & {
+		body.is-menu-visible &,
+		body.is-account-menu-visible & {
 			opacity: 0.15;
 		}
 

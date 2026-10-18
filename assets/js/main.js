@@ -8,6 +8,7 @@
 
 	var	$window = $(window),
 		$body = $('body'),
+		$accountMenu = $('#account-menu'),
 		$menu = $('#menu'),
 		$sidebar = $('#sidebar'),
 		$main = $('#main');
@@ -29,6 +30,16 @@
 		});
 
 	// Menu.
+		$accountMenu
+			.appendTo($body)
+			.panel({
+				hideOnClick: true,
+				hideOnSwipe: true,
+				side: 'left',
+				target: $body,
+				visibleClass: 'is-account-menu-visible'
+			});
+
 		$menu
 			.appendTo($body)
 			.panel({
