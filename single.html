@@ -198,6 +198,7 @@
   "author": "CNN Brasil",
   "authorImage": "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20fill%3D%27%23b91c1c%27%2F%3E%3Ctext%20x%3D%2732%27%20y%3D%2741%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2Csans-serif%27%20font-size%3D%2724%27%20font-weight%3D%27700%27%20fill%3D%27white%27%3ECNN%3C%2Ftext%3E%3C%2Fsvg%3E",
   "image": "https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2026/05/GettyImages-1130215836-e1779741328126.jpg?w=419&h=249&crop=1&quality=90",
+  "imageSrcset": "https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2026/05/GettyImages-1130215836-e1779741328126.jpg?w=419&h=249&crop=1&quality=90 419w, https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2026/05/GettyImages-1130215836-e1779741328126.jpg?w=1200&h=714&crop=1&quality=90 1200w, https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2026/05/GettyImages-1130215836-e1779741328126.jpg?w=1600&h=952&crop=1&quality=90 1600w",
   "category": "Esportes",
   "paragraphs": [
     "O Inter de Limeira assegurou o retorno à Série B do Campeonato Brasileiro depois de 35 anos de ausência, segundo a CNN Brasil.",
@@ -277,6 +278,7 @@
   "author": "CNN Brasil",
   "authorImage": "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20fill%3D%27%23b91c1c%27%2F%3E%3Ctext%20x%3D%2732%27%20y%3D%2741%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2Csans-serif%27%20font-size%3D%2724%27%20font-weight%3D%27700%27%20fill%3D%27white%27%3ECNN%3C%2Ftext%3E%3C%2Fsvg%3E",
   "image": "https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2026/05/narnia-filme.jpg?w=419&h=249&crop=1&quality=90",
+  "imageSrcset": "https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2026/05/narnia-filme.jpg?w=419&h=249&crop=1&quality=90 419w, https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2026/05/narnia-filme.jpg?w=1200&h=714&crop=1&quality=90 1200w, https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2026/05/narnia-filme.jpg?w=1600&h=952&crop=1&quality=90 1600w",
   "category": "Entretenimento",
   "paragraphs": [
     "Foi divulgado o trailer da nova adaptação de “As Crônicas de Nárnia”, baseada na obra de C.S. Lewis, informa a CNN Brasil."
@@ -370,7 +372,15 @@ const articleId = new URLSearchParams(window.location.search).get("noticia") || 
 						document.getElementById("article-author").textContent = article.author;
 						document.getElementById("article-author-image").src = article.authorImage;
 					}
-					document.getElementById("article-image").src = article.image;
+					const articleImage = document.getElementById("article-image");
+					articleImage.src = article.image;
+					if (article.imageSrcset) {
+						articleImage.srcset = article.imageSrcset;
+						articleImage.sizes = "(max-width: 736px) 100vw, 65vw";
+					} else {
+						articleImage.removeAttribute("srcset");
+						articleImage.removeAttribute("sizes");
+					}
 					document.getElementById("article-image").alt = article.title;
 					document.getElementById("article-category").textContent = article.category;
 					document.getElementById("article-stats").hidden = !article.hasStats;

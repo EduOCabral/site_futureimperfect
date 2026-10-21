@@ -40,6 +40,14 @@
 				visibleClass: 'is-account-menu-visible'
 			});
 
+		$body.on('click', 'a.fa-bars[href="#menu"]', function(event) {
+			event.preventDefault();
+			event.stopImmediatePropagation();
+
+			if (window.confirm('Tem certeza que deseja abrir o menu?'))
+				$body.addClass('is-menu-visible');
+		});
+
 		$menu
 			.appendTo($body)
 			.panel({
